@@ -1,0 +1,554 @@
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/tracker/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/tracker/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/tracker/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/tracker/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/tracker/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/http/request.py", line 148, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Bad Request: /api/TrackingDetails
+/Volumes/Volume/jwt/tracker/app/tracker/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Method Not Allowed: /api/posttrack
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Method Not Allowed: /api/posttrack
+/Volumes/Volume/jwt/tracker/app/msbctracker/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Method Not Allowed: /api/posttrack
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Method Not Allowed: /api/posttrack
+Method Not Allowed: /api/posttrack
+Method Not Allowed: /api/posttrack
+Method Not Allowed: /api/posttrack
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Method Not Allowed: /api/posttrack
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Method Not Allowed: /api/posttrack
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Method Not Allowed: /api/posttrack
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Method Not Allowed: /api/posttrack
+/Volumes/Volume/jwt/tracker/app/msbctracker/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Method Not Allowed: /api/posttrack
+Method Not Allowed: /api/posttrack
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Method Not Allowed: /api/posttrack
+Method Not Allowed: /api/posttrack
+Watching for file changes with StatReloader
+Method Not Allowed: /api/posttrack
+Method Not Allowed: /api/posttrack
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Method Not Allowed: /api/posttrack
+Method Not Allowed: /api/posttrack
+/Volumes/Volume/jwt/tracker/app/msbctracker/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Method Not Allowed: /api/posttrack
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/PostTrack
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3803, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Volumes/Volume/jwt/tracker/app/msbctracker/views.py", line 733, in post
+    print('HIIIIIIIIIIOOO',excel_data_df[1])
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3804, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    raise KeyError(key) from err
+KeyError: 1
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/PostTrack
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3803, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'tracking_number'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Volumes/Volume/jwt/tracker/app/msbctracker/views.py", line 735, in post
+    p = excel_data_df['tracking_number'][ind]
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/pandas/core/frame.py", line 3804, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    raise KeyError(key) from err
+KeyError: 'tracking_number'
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/TrackingDetails
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Volumes/Volume/jwt/tracker/app/msbctracker/views.py", line 973, in patch
+    hold_status = Tracker.objects.filter(tracking_number=t).values_list('status')[0][0]
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/db/models/query.py", line 446, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/TrackingDetails
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Volumes/Volume/jwt/tracker/app/msbctracker/views.py", line 973, in patch
+    hold_status = Tracker.objects.filter(tracking_number=t).values_list('status')[0][0]
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/db/models/query.py", line 446, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Method Not Allowed: /api/TrackingDetails
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/PostTrack
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Volumes/Volume/jwt/tracker/app/msbctracker/views.py", line 737, in post
+    numbers(p)
+  File "/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py", line 29, in numbers
+    response = requests.post(api_url, headers=headers,body=body)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+TypeError: Session.request() got an unexpected keyword argument 'body'
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/TrackingDetails
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Volumes/Volume/jwt/tracker/app/msbctracker/views.py", line 912, in patch
+    tracking_info = i['destination_info']['trackinfo']
+KeyError: 'destination_info'
+Internal Server Error: /api/TrackingDetails
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Volumes/Volume/jwt/tracker/app/msbctracker/views.py", line 912, in patch
+    tracking_info = i['destination_info']['trackinfo']
+KeyError: 'destination_info'
+Internal Server Error: /api/TrackingDetails
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Volumes/Volume/jwt/tracker/app/msbctracker/views.py", line 912, in patch
+    tracking_info = i['destination_info']['trackinfo']
+KeyError: 'destination_info'
+Internal Server Error: /api/TrackingDetails
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Volumes/Volume/jwt/tracker/app/msbctracker/views.py", line 912, in patch
+    tracking_info = i['destination_info']['trackinfo']
+KeyError: 'destination_info'
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/TrackingDetails
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Volumes/Volume/jwt/tracker/app/msbctracker/views.py", line 912, in patch
+    tracking_info = i['destination_info']['trackinfo']
+KeyError: 'destination_info'
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/TrackingDetails
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Volumes/Volume/jwt/tracker/app/msbctracker/views.py", line 913, in patch
+    tracking_info = i['destination_info']['trackinfo']
+KeyError: 'destination_info'
+Watching for file changes with StatReloader
+Internal Server Error: /api/TrackingDetails
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Volumes/Volume/jwt/tracker/app/msbctracker/views.py", line 913, in patch
+    tracking_info = i['destination_info']['trackinfo']
+KeyError: 'destination_info'
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/PostTrack
+Traceback (most recent call last):
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Volumes/Volume/orderc/myenv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Volumes/Volume/jwt/tracker/app/msbctracker/views.py", line 737, in post
+    numbers(p)
+  File "/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py", line 18, in numbers
+    body.append(json)
+NameError: name 'body' is not defined
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/functions.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/models.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/tracker/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/Volumes/Volume/jwt/tracker/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
