@@ -3,7 +3,6 @@ import datetime
 from itertools import tee
 from optparse import TitledHelpFormatter
 from re import A
-from turtle import numinput
 from unicodedata import numeric
 from urllib import request
 from xxlimited import new
