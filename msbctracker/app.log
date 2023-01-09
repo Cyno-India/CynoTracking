@@ -831,3 +831,88 @@ Traceback (most recent call last):
   File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/django/utils/datastructures.py", line 86, in __getitem__
     raise MultiValueDictKeyError(key)
 django.utils.datastructures.MultiValueDictKeyError: 'file'
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Volumes/Volume/untitled folder 2/ct/app/msbctracker/views.py changed, reloading.
+Watching for file changes with StatReloader

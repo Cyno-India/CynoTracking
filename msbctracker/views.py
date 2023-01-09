@@ -763,6 +763,8 @@ class GetTrackingDetails(APIView):
                 tracking_number = i['tracking_number']
                 updated_time = i['updated_at']
                 tracking_info = i['destination_info']['trackinfo']
+                origin_info = i['origin_info']['trackinfo']
+                # print('ORIGINNNN DATA',origin_info)
                 last_event = i['lastEvent']
                 if tracking_info is None:
                     booked = ""
@@ -781,15 +783,37 @@ class GetTrackingDetails(APIView):
                     for t in tracking_info:
                         date = t['Date']
                         status_desc = t['StatusDescription']
-
+                        
                         if status_desc == "Posting/Collection ":
                             booked = date
+                        # if booked == "":
+                        #     for new_t in origin_info:
+                        #         date = new_t['Date']
+                        #         status_desc = new_t['StatusDescription']
+                        #         # print('OROGINNN DATE AND STATUS',date,status_desc)
+                        #         if status_desc == "Item Bagged":
+                        #             print('STATUSS DESC',status_desc,date)
+                        #             booked = date
                         if status_desc == "Dispatch from outward office of exchange ":
                             outbound_date = date
                         if status_desc == "Arrival at inward office of exchange ":
                             arrival_date = date
                         if status_desc == "Final delivery ":
                             delivered_date = date
+                    
+                    # print(booked,'ORIGN BOOK')
+                    if booked == "":
+                        for new_t in origin_info:
+                            date = new_t['Date']
+                            status_desc = new_t['StatusDescription']
+                            # print('OROGINNN DATE AND STATUS',date,status_desc)
+                            if status_desc ==  "Item Booked":
+                                # print('STATUSS DESC',status_desc,date)ß
+                                booked = date
+                                # print('ORIGN BOOK',booked)
+                            # booked = dateß
+                            # print('CHAL GYA BHAI')
+                            
 
                 d = {
                     "status": status,
@@ -921,6 +945,7 @@ class GetTrackingDetails(APIView):
             updated_time = i['updated_at']
             print('TRRRACK',tracking_number)
             tracking_info = i['destination_info']['trackinfo']
+            origin_info = i['origin_info']['trackinfo']
             last_event = i['lastEvent']
             if tracking_info is None:
                 booked = ""
@@ -948,6 +973,15 @@ class GetTrackingDetails(APIView):
                         arrival_date = date
                     if status_desc == "Final delivery ":
                         delivered_date = date
+                
+                if booked == "":
+                    for new_t in origin_info:
+                        date = new_t['Date']
+                        status_desc = new_t['StatusDescription']
+                        # print('OROGINNN DATE AND STATUS',date,status_desc)
+                        if status_desc ==  "Item Booked":
+                            # print('STATUSS DESC',status_desc,date)ß
+                            booked = date
 
             d = {
                 "status": status,
