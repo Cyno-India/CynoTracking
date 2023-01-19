@@ -810,14 +810,17 @@ class GetTrackingDetails(APIView):
                             arrival_date = date
                         if status_desc == "Final delivery ":
                             delivered_date = date
-                if delivered_date:
+                if status == "delivered":              ####   Staus handling if booked and item delivery is confirmed
                     status = "Delivered"
-                elif outbound_date:
-                    status = "OutBound"
-                elif arrival_date:
-                    status = "Arrival"
-                elif booked:
-                    status = "Booked"
+                else:
+                    if delivered_date:
+                        status = "Delivered"
+                    elif outbound_date:
+                        status = "OutBound"
+                    elif arrival_date:
+                        status = "Arrival"
+                    elif booked:
+                        status = "Booked"
                     # print(booked,'ORIGN BOOK')
                     # if booked == "":
                     #     for new_t in origin_info:
