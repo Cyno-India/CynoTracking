@@ -747,6 +747,12 @@ class PostingTrack(APIView):
                 # numbers(tr)
         return Response('DONE')
 
+# def get_difference(list_a, list_b):
+#     non_match_a  = set(list_a)-set(list_b)
+#     non_match_b  = set(list_b)-set(list_a)
+#     non_match = list(non_match_a) + list(non_match_b)
+#     print(non_match)
+
 class GetTrackingDetails(APIView):
     def get(self, request):
         request_data = request.data
@@ -766,22 +772,45 @@ class GetTrackingDetails(APIView):
                 updated_time = i['updated_at']
                 tracking_info = i['destination_info']['trackinfo']
                 origin_info = i['origin_info']['trackinfo']
-                # print('ORIGINNNN DATA',origin_info)
                 last_event = i['lastEvent']
                 if tracking_info is None:
                     booked = ""
-                    if origin_info:
-                        for new_t in origin_info:
-                            date = new_t['Date']
-                            status_desc = new_t['StatusDescription']
-                            # print('OROGINNN DATE AND STATUS',date,status_desc)
-                            if status_desc ==  "Item Booked":
-                                print('STATUSS DESC',status_desc,date)
-                                booked = date
+                    # if origin_info:
+                    #     for new_t in origin_info:
+                    #         date = new_t['Date']
+                    #         status_desc = new_t['StatusDescription']
+                    #         # print('OROGINNN DATE AND STATUS',date,status_desc)
+                    #         if "Item Booked" in status_desc:     ## Changed to CONTAINS
+                    #             # print('STATUSS DESC',status_desc,date)
+                    #             booked = date
+                    #         else:
+                    #             if "Item Booked,Air" in status_desc:
+                    #                 print('STATUSS DESC',status_desc,date)
+
+                    #                 booked = date
                     arrival_date= ""
                     outbound_date= ""
                     delivered_date= ""
                     tracking_info = ""
+                    if origin_info:
+                        for new_t in origin_info:
+                            date = new_t['Date']
+                            status_desc = new_t['StatusDescription']
+                            details = new_t['Details']
+                            # print('OROGINNN DATE AND STATUS',date,status_desc)
+                            if "Item Booked" in status_desc:     ## Changed to CONTAINS
+                                # print('STATUSS DESC',status_desc,date)
+                                booked = date
+                            else:
+                                if "Item Booked,Air" in status_desc:
+                                    print('STATUSS DESC',status_desc,date)
+                                    booked = date
+                            if "Item Received" in status_desc and "KAWASAKI" in details:
+                                arrival_date = date
+                            if "(Otb)" in status_desc:
+                                outbound_date = date
+                            if "Delivery Confirmed" in status_desc:
+                                delivered_date = date
 
                     
                 elif tracking_info is not None:
@@ -796,6 +825,13 @@ class GetTrackingDetails(APIView):
                         
                         if status_desc == "Posting/Collection ":
                             booked = date
+                        # else:
+                        #     for new_t in origin_info:
+                        #         date = new_t['Date']
+                        #         status_desc = new_t['StatusDescription']
+                        #         # print('OROGINNN DATE AND STATUS',date,status_desc)
+                        #         if status_desc ==  "Item Booked,Air":
+                        #             print('STATUSS DESC',status_desc,date)
                         # if booked == "":
                         #     for new_t in origin_info:
                         #         date = new_t['Date']
@@ -822,13 +858,13 @@ class GetTrackingDetails(APIView):
                     elif booked:
                         status = "Booked"
                     # print(booked,'ORIGN BOOK')
-                    # if booked == "":
-                    #     for new_t in origin_info:
-                    #         date = new_t['Date']
-                    #         status_desc = new_t['StatusDescription']
-                    #         # print('OROGINNN DATE AND STATUS',date,status_desc)
-                    #         if status_desc ==  "Item Booked":
-                    #             print('STATUSS DESC',status_desc,date)
+                # if booked == "":
+                #     print('1',booked)
+                # for new_t in origin_info:
+                #     date = new_t['Date']
+                #     status_desc = new_t['StatusDescription']
+                #     if status_desc ==  "Item Booked,Air":
+                #         print('STATUSS DESC',status_desc,date)
                     #             booked = date
                                 # print('ORIGN BOOK',booked)
                             # booked = dateß
@@ -844,6 +880,7 @@ class GetTrackingDetails(APIView):
                     "OutBound":outbound_date,
                     "Delivered":delivered_date,
                     "lastEvent":last_event,
+                    # "origin_info":origin_info,
                     "tracking_info":tracking_info
 
                 }
@@ -933,7 +970,7 @@ class GetTrackingDetails(APIView):
                 elif s == "Delivered":
                     ns = "8"
                 
-                print('NSSSSS',ns)
+                # print('NSSSSS',ns)
 
 
                 new_data = Tracker.objects.create(api_call_time=ind_time,status=s,tracking_number=t,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i,numeric_status=ns
