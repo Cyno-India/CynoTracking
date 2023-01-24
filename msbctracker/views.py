@@ -823,7 +823,7 @@ class GetTrackingDetails(APIView):
                         date = t['Date']
                         status_desc = t['StatusDescription']
                         
-                        if status_desc == "Posting/Collection ":
+                        if "Posting/Collection " in status_desc:
                             booked = date
                         # else:
                         #     for new_t in origin_info:
@@ -840,11 +840,11 @@ class GetTrackingDetails(APIView):
                         #         if status_desc == "Item Bagged":
                         #             print('STATUSS DESC',status_desc,date)
                         #             booked = date
-                        if status_desc == "Dispatch from outward office of exchange ":
+                        if "Dispatch from outward office of exchange " in status_desc:
                             outbound_date = date
-                        if status_desc == "Arrival at inward office of exchange ":
+                        if "Arrival at inward office of exchange " in status_desc:
                             arrival_date = date
-                        if status_desc == "Final delivery ":
+                        if "Final delivery " in status_desc:
                             delivered_date = date
                 if status == "delivered":              ####   Staus handling if booked and item delivery is confirmed
                     status = "Delivered"
