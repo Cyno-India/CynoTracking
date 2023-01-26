@@ -775,21 +775,8 @@ class GetTrackingDetails(APIView):
                 last_event = i['lastEvent']
                 if tracking_info is None:
                     booked = ""
-                    # if origin_info:
-                    #     for new_t in origin_info:
-                    #         date = new_t['Date']
-                    #         status_desc = new_t['StatusDescription']
-                    #         # print('OROGINNN DATE AND STATUS',date,status_desc)
-                    #         if "Item Booked" in status_desc:     ## Changed to CONTAINS
-                    #             # print('STATUSS DESC',status_desc,date)
-                    #             booked = date
-                    #         else:
-                    #             if "Item Booked,Air" in status_desc:
-                    #                 print('STATUSS DESC',status_desc,date)
-
-                    #                 booked = date
-                    arrival_date= ""
                     outbound_date= ""
+                    arrival_date= ""
                     delivered_date= ""
                     tracking_info = ""
                     if origin_info:
@@ -798,7 +785,7 @@ class GetTrackingDetails(APIView):
                             status_desc = new_t['StatusDescription']
                             details = new_t['Details']
                             # print('OROGINNN DATE AND STATUS',date,status_desc)
-                            if "Item Booked" in status_desc:     ## Changed to CONTAINS
+                            if "Item Booked" in status_desc or "Item Booked,Air" in status_desc:     ## Changed to CONTAINS
                                 # print('STATUSS DESC',status_desc,date)
                                 booked = date
                             else:
@@ -815,8 +802,8 @@ class GetTrackingDetails(APIView):
                     
                 elif tracking_info is not None:
                     booked = ""
-                    arrival_date= ""
                     outbound_date= ""
+                    arrival_date= ""
                     delivered_date= ""
 
                     for t in tracking_info:
@@ -851,10 +838,10 @@ class GetTrackingDetails(APIView):
                 else:
                     if delivered_date:
                         status = "Delivered"
-                    elif outbound_date:
-                        status = "OutBound"
                     elif arrival_date:
                         status = "Arrival"
+                    elif outbound_date:
+                        status = "OutBound"
                     elif booked:
                         status = "Booked"
                     # print(booked,'ORIGN BOOK')
@@ -876,8 +863,8 @@ class GetTrackingDetails(APIView):
                     "tracking_number":tracking_number,
                     "updated_time":updated_time,    
                     "Booked":booked,
-                    "Arrival":arrival_date,
                     "OutBound":outbound_date,
+                    "Arrival":arrival_date,
                     "Delivered":delivered_date,
                     "lastEvent":last_event,
                     # "origin_info":origin_info,
