@@ -972,6 +972,7 @@ class GetTrackingDetails(APIView):
 
 
 
+
             # print(current_time)
 
 
@@ -995,6 +996,9 @@ class GetTrackingDetails(APIView):
                 ns = "8"
             
             # print('NSSSSS',ns)
+#                 new_data = Tracker.objects.create(api_call_time=ind_time,status=s,tracking_number=t,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i,numeric_status=ns
+            
+#         )
 
 
             # new_data = Tracker.objects.create(api_call_time=ind_time,status=s,tracking_number=t,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i,numeric_status=ns
