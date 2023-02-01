@@ -787,9 +787,9 @@ class GetTrackingDetails(APIView):
                         status_desc = new_t['StatusDescription']
                         details = new_t['Details']
                         # print('OROGINNN DATE AND STATUS',tracking_number,date,status_desc)
-                        if "Booked" in status_desc or "Booked,Air": 
+                        if "Booked" in status_desc or "Booked,Air" in status_desc: 
                                 ## Changed to CONTAINS
-                            # print('STATUSS DESC',status_desc)
+                            # print('STATUSS DESC',tracking_number,status_desc)
                             booked = date
                         # else:
                         #     if "Item Booked,Air" in status_desc:
@@ -846,7 +846,17 @@ class GetTrackingDetails(APIView):
                         arrival_date = date
                     if "Final delivery " in status_desc:
                         delivered_date = date
-                    
+                
+                if booked == "":
+                    # print('EMPTYYY BOOKED',booked)
+                    for j in origin_info:
+                        date = j['Date']
+                        status_desc = j['StatusDescription']
+                        # print('ORIGN BOOK',status_desc)
+                        if "Booked,Air" in status_desc:
+                            print('STATUSS DESC',status_desc,date)
+                            booked = date
+
                     # if "TOKYO INT BAG" in details:
                     #     print('ORIGIN DETAAILLSSS',tracking_number,details,status_desc)
                     #     new_status = "Returned"  
@@ -909,6 +919,7 @@ class GetTrackingDetails(APIView):
 
             }
             new_temp.append(d)
+
         
 
         for new in new_temp:
