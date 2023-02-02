@@ -306,7 +306,7 @@ class GetTrackingDetails(APIView):
                         if "(Otb)" in status_desc:
                             outbound_date = date
                         else:
-                            if "Bagged,Air" in status_desc:
+                            if "Bagged,Air" in status_desc or "Bagged" in status_desc:
                                 outbound_date = date
 
                         if "Delivery Confirmed" in status_desc:
