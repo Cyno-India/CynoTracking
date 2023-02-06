@@ -300,7 +300,7 @@ class GetTrackingDetails(APIView):
                         #     if "Item Booked,Air" in status_desc:
                         #         print('STATUSS DESC',status_desc)
                                 # booked = date
-                        if "Item Received" in status_desc and "KAWASAKI" in details or "Item Received" in status_desc and "GUANGZHOU" in details:
+                        if "Item Received" in status_desc and "KAWASAKI" in details:
                             arrival_date = date
 
                         if "(Otb)" in status_desc:
@@ -348,9 +348,9 @@ class GetTrackingDetails(APIView):
                     #         if status_desc == "Item Bagged":
                     #             print('STATUSS DESC',status_desc,date)
                     #             booked = date
-                    if "Dispatch from outward office of exchange " in status_desc:
+                    if "Dispatch from outward office of exchange " in status_desc or "Departure" in status_desc:
                         outbound_date = date
-                    if "Arrival at inward office of exchange " in status_desc:
+                    if "Arrival at inward office of exchange " in status_desc :
                         arrival_date = date
                     if "Final delivery " in status_desc or "Delivered " in status_desc:
                         delivered_date = date
@@ -371,7 +371,7 @@ class GetTrackingDetails(APIView):
                         status_desc = p['StatusDescription']
                         details = p['Details']
                         # print('ORIGN BOOK',status_desc)
-                        if "Received" in status_desc:
+                        if "Item Received" in status_desc and "GUANGZHOU" in details:
                             # print('STATUSS DESC',tracking_number,status_desc,date)
                             arrival_date = date
         
