@@ -84,7 +84,7 @@ def track():
         "tracking_number":"RD040924587IN",
         "carrier_code": "india-post"
     }
-    api_url = "https://api.tracktry.com/v1/trackings/get"
+    api_url = "https://api.tracktry.com/v1/trackings/get?limit=2000"
     print("API HITTTTT")
     # headers =  {"Content-Type":"application/json","Tracktry-Api-Key":"27654af3-b244-4192-b7d8-ce32be8d86c4"}
     headers =  {"Content-Type":"application/json","Tracktry-Api-Key":"ae2e8060-296c-4423-a980-c9e166e51498"}
@@ -144,503 +144,8 @@ def track():
 
 # t()
 
-class func(APIView):
-    def get(self, request):
-        request_data = request.data
-        # t = request_data['tracking_number']
-        # print(track)
-        te = track()
-        # print(te['data']['items'][0]['status'],'ttttttt')
-        new_dict=  te['data']['items']
-        new_temp = []
-        previous_tracking_number = ""
-        previous_status = ""
-        flag = True
-        booked_date = ""
-        arrival_date = ""
-        outbound_date = ""
-        delivered_date = ""
-        previous_booked_date = ""
-        previous_arrival_date = ""
-        previous_outbound_date = ""
-        previous_delivered_date = ""
-
-        # print(new_dict,'---------------')
-        # print(previous_tracking_number,'>>>>>>>>>.')
-        # print(f"new_dict: {new_dict}")
-        for i in range(0,len(new_dict)):
-            if i == 0:
-                tracking_info_temp = []
-                previous_tracking_number = new_dict[0]['tracking_number']
-                previous_status = new_dict[0]['status']
-                # print(f"new_dict_2: {new_dict[i]}")
-
-
-            x = new_dict[i]['destination_info']['trackinfo']
-            # print(x,'++++++++++++++++++')
-            if x is not None:
-                for items in range(0,len(x)):
-                    # if items == 0:
-                        # print(f"Xitems: {x[items]}")
-
-                    
-                    date = x[items]['Date']
-                    status_desc= x[items]['StatusDescription']
-                    details = x[items]['Details']
-                    if status_desc == "Posting/Collection ":
-                        booked_date = date
-                    if status_desc == "Dispatch from outward office of exchange ":
-                        outbound_date = date
-                    if status_desc == "Arrival at inward office of exchange ":
-                        arrival_date = date
-                    if status_desc == "Final delivery ":
-                        delivered_date = date
-
-                   
-                    if len(previous_booked_date) == 0 and len(booked_date) > 0:
-                        previous_booked_date = booked_date
-                    if len(previous_outbound_date) == 0 and len(outbound_date) > 0:
-                        previous_outbound_date = outbound_date
-                    if len(previous_arrival_date) == 0 and len(arrival_date) > 0:
-                        previous_arrival_date = arrival_date
-                    if len(previous_delivered_date) == 0 and len(delivered_date) > 0:
-                        previous_delivered_date = delivered_date
-                    
-                    # checkpoint = x[items]['checkpoint_status']
-      
-                    tracking_number = new_dict[i]['tracking_number']
-                    # status = new_dict[i]['status']
-        
-                    if previous_tracking_number == tracking_number:
-                        zz = {
-                                "Destination_Date": date,
-                                "Destination_StatusDescription":status_desc, 
-                                "Details":details,
-                            }
-                        tracking_info_temp.append(zz)
-
-
-                    if previous_tracking_number != tracking_number:
-
-                        d = {
-                            "status":previous_status,
-                            "tracking_number":previous_tracking_number,
-                            "Booked":previous_booked_date,
-                            "Arrival":previous_arrival_date,
-                            "Outbound":previous_outbound_date,
-                            "Delivered":previous_delivered_date,
-                            "tracking_info" : tracking_info_temp                        
-                            }
-                        new_temp.append(d)
-    
-                        # print(f"d : {d}")
-                        tracking_info_temp = []
-                        booked_date = ""
-                        arrival_date = ""
-                        outbound_date = ""
-                        delivered_date = ""
-                        previous_booked_date = ""
-                        previous_arrival_date = ""
-                        previous_outbound_date = ""
-                        previous_delivered_date = ""
-                        previous_tracking_number = tracking_number
-                        zz = {
-                                "Destination_Date": date,
-                                "Destination_StatusDescription":status_desc, 
-                                "Details":details,
-                            }
-
-                        tracking_info_temp.append(zz)
-                        if i == len(new_dict) -1:
-                            d = {
-                            "status":new_dict[i]['status'],
-                            "tracking_number":new_dict[i]['tracking_number'],
-                            "Booked":booked_date,
-                            "Arrival":arrival_date,
-                            "Outbound":outbound_date,
-                            "Delivered":delivered_date,
-                            "tracking_info" : tracking_info_temp                        
-                            }
-                            new_temp.append(d)
-                            flag = False
-                            booked_date = ""
-                            arrival_date = ""
-                            outbound_date = ""
-                            delivered_date = ""
-                            previous_booked_date = ""
-                            previous_arrival_date = ""
-                            previous_outbound_date = ""
-                            previous_delivered_date = ""
-
-
-                    elif previous_tracking_number == tracking_number and i == len(new_dict) -1 and flag:
-                        d = {
-                            "status":new_dict[i]['status'],
-                            "tracking_number":new_dict[i]['tracking_number'],
-                            "Booked":booked_date,
-                            "Arrival":arrival_date,
-                            "Outbound":outbound_date,
-                            "Delivered":delivered_date,
-                            "tracking_info" : tracking_info_temp                        
-                            }
-                        new_temp.append(d)
-                        booked_date = ""
-                        arrival_date = ""
-                        outbound_date = ""
-                        delivered_date = ""
-                        previous_booked_date = ""
-                        previous_arrival_date = ""
-                        previous_outbound_date = ""
-                        previous_delivered_date = ""
-            else:
-                d = {
-                        "status":new_dict[i]['status'],
-                        "tracking_number":new_dict[i]['tracking_number'],
-                        "Booked":booked_date,
-                        "Arrival":arrival_date,
-                        "Outbound":outbound_date,
-                        "Delivered":delivered_date,
-                        "tracking_info" : ""                       
-                     }
-                new_temp.append(d)            
-
-            
-                booked_date = ""
-                arrival_date = ""
-                outbound_date = ""
-                delivered_date = ""
-                previous_booked_date = ""
-                previous_arrival_date = ""
-                previous_outbound_date = ""
-                previous_delivered_date = ""
-            
 
         
-        # for new in new_temp:
-        #     s = new['status']                
-        #     t = new['tracking_number']
-        #     b = new['Booked']
-        #     a = new['Arrival']
-        #     d = new['Delivered']
-        #     o = new['Outbound']
-        #     i = new['tracking_info']
-
-        #     if d:
-        #         s = "Delivered"
-        #     elif o:
-        #         s = "Out For Delivery"
-        #     elif a:
-        #         s = "Arrived"
-        #     elif b:
-        #         s = "Booked"
-               
-
-            # if b is None:
-            #     pass
-            # else:
-            #     s = "Booked"
-            #     break
-            
-
-            # if a is None:
-            #     pass
-            # else:
-            #     s = "Arrived"
-            #     break
-
-
-            # if o is None:
-            #     pass
-            # else:
-            #     s = "Outbound"
-            #     break
-            
-
-
-            
-            
-
-
-
-           
-
-        #     new_data = Tracker.objects.create(status=s,tracking_number=t,
-        #     booked=b,delivered=d,outbound=o,arrival=a,tracking_info=i
-        
-        # )
-
-                        
-                        
-                            
-                        
-                            # "Origin_Date": o_date,"Origin_StatusDescription":o_status_desc,
-
-                        
-        # serializer = TrackSerializer(data=request_data)
-        # serializer.is_valid(raise_exception=True)
-        # new_data = Tracker.objects.create(data=new_temp)
-        # updated_data = Tracker.objects.update(data=te)
-
-        return Response(
-            new_temp
-            )
-
-        # tn = Tracker.objects.create(tracking_number=t,data=te)
-        # return Response(te, status=status.HTTP_201_CREATED)
-    
-    # def get(self, request):
-    #     try:
-    #         t = Tracker.objects.filter(tracking_number=request.data['tracking_number']).values()
-    #         return Response(t)
-    #     except:
-    #         return Response('Tracking number has to be specifed',status=status.HTTP_404_NOT_FOUND)
-        
-        
-# class GetTrackingDetails(APIView):
-#     def get(self, request):
-#         request_data = request.data
-#         # t = request_data['tracking_number']
-#         # print(track)
-#         te = track()
-#         # print(te['data']['items'][0]['status'],'ttttttt')
-#         new_dict=  te['data']['items']
-#         print(new_dict)
-#         new_temp = []
-#         # previous_tracking_number = ""
-#         # previous_status = ""
-#         # flag = True
-#         # booked_date = ""
-#         # arrival_date = ""
-#         # outbound_date = ""
-#         # delivered_date = ""
-#         # previous_booked_date = ""
-#         # previous_arrival_date = ""
-#         # previous_outbound_date = ""
-#         # previous_delivered_date = ""
-
-#         # print(new_dict,'---------------')
-#         # print(previous_tracking_number,'>>>>>>>>>.')
-#         # print(f"new_dict: {new_dict}")
-#         for i in range(0,len(new_dict)):
-#             if i == 0:
-#                 tracking_info_temp = []
-#                 previous_tracking_number = new_dict[0]['tracking_number']
-#                 print(previous_tracking_number)
-#                 previous_status = new_dict[0]['status']
-#                 # print(previous_status)
-#                 # print(f"new_dict_2: {new_dict[i]}")
-
-
-#             x = new_dict[i]['destination_info']['trackinfo']
-#             # print(x,'++++++++++++++++++')
-#             if x is not None:
-#                 for items in range(0,len(x)):
-#                     # if items == 0:
-#                         # print(f"Xitems: {x[items]}")
-
-                    
-#                     date = x[items]['Date']
-#                     status_desc= x[items]['StatusDescription']
-#                     details = x[items]['Details']
-#                     # if status_desc == "Posting/Collection ":
-#                     #     booked_date = date
-#                     # if status_desc == "Dispatch from outward office of exchange ":
-#                     #     outbound_date = date
-#                     # if status_desc == "Arrival at inward office of exchange ":
-#                     #     arrival_date = date
-#                     # if status_desc == "Final delivery ":
-#                     #     delivered_date = date
-
-                   
-#                     # if len(previous_booked_date) == 0 and len(booked_date) > 0:
-#                     #     previous_booked_date = booked_date
-#                     # if len(previous_outbound_date) == 0 and len(outbound_date) > 0:
-#                     #     previous_outbound_date = outbound_date
-#                     # if len(previous_arrival_date) == 0 and len(arrival_date) > 0:
-#                     #     previous_arrival_date = arrival_date
-#                     # if len(previous_delivered_date) == 0 and len(delivered_date) > 0:
-#                     #     previous_delivered_date = delivered_date
-                    
-#                     # checkpoint = x[items]['checkpoint_status']
-      
-#                     tracking_number = new_dict[i]['tracking_number']
-#                     # status = new_dict[i]['status']
-        
-#                     if previous_tracking_number == tracking_number:
-#                         zz = {
-#                                 "Destination_Date": date,
-#                                 "Destination_StatusDescription":status_desc, 
-#                                 "Details":details,
-#                             }
-#                         tracking_info_temp.append(zz)
-
-
-#                     if previous_tracking_number != tracking_number:
-
-#                         d = {
-#                             "status":previous_status,
-#                             "tracking_number":previous_tracking_number,
-#                             # "Booked":previous_booked_date,
-#                             # "Arrival":previous_arrival_date,
-#                             # "Outbound":previous_outbound_date,
-#                             # "Delivered":previous_delivered_date,
-#                             "tracking_info" : tracking_info_temp                        
-#                             }
-#                         new_temp.append(d)
-    
-#                         # print(f"d : {d}")
-#                         tracking_info_temp = []
-#                         # booked_date = ""
-#                         # arrival_date = ""
-#                         # outbound_date = ""
-#                         # delivered_date = ""
-#                         # previous_booked_date = ""
-#                         # previous_arrival_date = ""
-#                         # previous_outbound_date = ""
-#                         # previous_delivered_date = ""
-#                         previous_tracking_number = tracking_number
-#                         zz = {
-#                                 "Destination_Date": date,
-#                                 "Destination_StatusDescription":status_desc, 
-#                                 "Details":details,
-#                             }
-
-#                         tracking_info_temp.append(zz)
-#                         if i == len(new_dict) -1:
-#                             d = {
-#                             "status":new_dict[i]['status'],
-#                             "tracking_number":new_dict[i]['tracking_number'],
-#                             # "Booked":booked_date,
-#                             # "Arrival":arrival_date,
-#                             # "Outbound":outbound_date,
-#                             # "Delivered":delivered_date,
-#                             "tracking_info" : tracking_info_temp                        
-#                             }
-#                             new_temp.append(d)
-#                             # flag = False
-#                             # booked_date = ""
-#                             # arrival_date = ""
-#                             # outbound_date = ""
-#                             # delivered_date = ""
-#                             previous_booked_date = ""
-#                             previous_arrival_date = ""
-#                             previous_outbound_date = ""
-#                             previous_delivered_date = ""
-
-
-#                     elif previous_tracking_number == tracking_number and i:
-#                         d = {
-#                             "status":new_dict[i]['status'],
-#                             "tracking_number":new_dict[i]['tracking_number'],
-#                             # "Booked":booked_date,
-#                             # "Arrival":arrival_date,
-#                             # "Outbound":outbound_date,
-#                             # "Delivered":delivered_date,
-#                             "tracking_info" : tracking_info_temp                        
-#                             }
-#                         new_temp.append(d)
-#                         # booked_date = ""
-#                         # arrival_date = ""
-#                         # outbound_date = ""
-#                         # delivered_date = ""
-#                         previous_booked_date = ""
-#                         previous_arrival_date = ""
-#                         previous_outbound_date = ""
-#                         previous_delivered_date = ""
-#             else:
-#                 d = {
-#                         "status":new_dict[i]['status'],
-#                         "tracking_number":new_dict[i]['tracking_number'],
-#                         # "Booked":booked_date,
-#                         # "Arrival":arrival_date,
-#                         # "Outbound":outbound_date,
-#                         # "Delivered":delivered_date,
-#                         "tracking_info" : ""                       
-#                      }
-#                 new_temp.append(d)            
-
-            
-#                 # booked_date = ""
-#                 # arrival_date = ""
-#                 # outbound_date = ""
-#                 # delivered_date = ""
-#                 # previous_booked_date = ""
-#                 # previous_arrival_date = ""
-#                 # previous_outbound_date = ""
-#                 # previous_delivered_date = ""
-            
-
-        
-#         # for new in new_temp:
-#         #     s = new['status']                
-#         #     t = new['tracking_number']
-#         #     b = new['Booked']
-#         #     a = new['Arrival']
-#         #     d = new['Delivered']
-#         #     o = new['Outbound']
-#         #     i = new['tracking_info']
-
-#         #     if d:
-#         #         s = "Delivered"
-#         #     elif o:
-#         #         s = "Out For Delivery"
-#         #     elif a:
-#         #         s = "Arrived"
-#         #     elif b:
-#         #         s = "Booked"
-               
-
-#             # if b is None:
-#             #     pass
-#             # else:
-#             #     s = "Booked"
-#             #     break
-            
-
-#             # if a is None:
-#             #     pass
-#             # else:
-#             #     s = "Arrived"
-#             #     break
-
-
-#             # if o is None:
-#             #     pass
-#             # else:
-#             #     s = "Outbound"
-#             #     break
-            
-
-
-            
-            
-
-
-
-           
-
-#         #     new_data = Tracker.objects.create(status=s,tracking_number=t,
-#         #     booked=b,delivered=d,outbound=o,arrival=a,tracking_info=i
-        
-#         # )
-
-                        
-                        
-                            
-                        
-#                             # "Origin_Date": o_date,"Origin_StatusDescription":o_status_desc,
-
-                        
-#         # serializer = TrackSerializer(data=request_data)
-#         # serializer.is_valid(raise_exception=True)
-#         # new_data = Tracker.objects.create(data=new_temp)
-#         # updated_data = Tracker.objects.update(data=te)
-
-#         return Response(
-#             new_temp
-#             )
-
-
 
 class GetTrackDetails(APIView):
     def get(self, request):
@@ -765,74 +270,129 @@ class GetTrackingDetails(APIView):
         # x = new_dict['destination_info']['trackinfo']
         # print(x)
         new_temp = []
-        try:
-            for i in new_dict:
-                status = i['status']
-                tracking_number = i['tracking_number']
-                updated_time = i['updated_at']
-                tracking_info = i['destination_info']['trackinfo']
-                origin_info = i['origin_info']['trackinfo']
-                last_event = i['lastEvent']
-                if tracking_info is None:
-                    booked = ""
-                    outbound_date= ""
-                    arrival_date= ""
-                    delivered_date= ""
-                    tracking_info = ""
-                    if origin_info:
-                        for new_t in origin_info:
-                            date = new_t['Date']
-                            status_desc = new_t['StatusDescription']
-                            details = new_t['Details']
-                            # print('OROGINNN DATE AND STATUS',date,status_desc)
-                            if "Item Booked" in status_desc or "Item Booked,Air" in status_desc:     ## Changed to CONTAINS
-                                # print('STATUSS DESC',status_desc,date)
-                                booked = date
-                            else:
-                                if "Item Booked,Air" in status_desc:
-                                    print('STATUSS DESC',status_desc,date)
-                                    booked = date
-                            if "Item Received" in status_desc and "KAWASAKI" in details:
-                                arrival_date = date
-                            if "(Otb)" in status_desc:
-                                outbound_date = date
-                            if "Delivery Confirmed" in status_desc:
-                                delivered_date = date
-
-                    
-                elif tracking_info is not None:
-                    booked = ""
-                    outbound_date= ""
-                    arrival_date= ""
-                    delivered_date= ""
-
-                    for t in tracking_info:
-                        date = t['Date']
-                        status_desc = t['StatusDescription']
-                        
-                        if "Posting/Collection " in status_desc:
+        # try:
+        for i in new_dict:
+            status = i['status']
+            tracking_number = i['tracking_number']
+            updated_time = i['updated_at']
+            tracking_info = i['destination_info']['trackinfo']
+            origin_info = i['origin_info']['trackinfo']
+            last_event = i['lastEvent']
+            if tracking_info is None:
+                # print(tracking_number,'ORIGIN INFO TRACK')
+                booked = ""
+                outbound_date= ""
+                arrival_date= ""
+                delivered_date= ""
+                tracking_info = ""
+                new_status = ""
+                if origin_info:
+                    for new_t in origin_info:
+                        date = new_t['Date']
+                        status_desc = new_t['StatusDescription']
+                        details = new_t['Details']
+                        # print('OROGINNN DATE AND STATUS',tracking_number,date,status_desc)
+                        if "Booked" in status_desc or "Booked,Air" in status_desc: 
+                                ## Changed to CONTAINS
+                            # print('STATUSS DESC',tracking_number,status_desc)
                             booked = date
                         # else:
-                        #     for new_t in origin_info:
-                        #         date = new_t['Date']
-                        #         status_desc = new_t['StatusDescription']
-                        #         # print('OROGINNN DATE AND STATUS',date,status_desc)
-                        #         if status_desc ==  "Item Booked,Air":
-                        #             print('STATUSS DESC',status_desc,date)
-                        # if booked == "":
-                        #     for new_t in origin_info:
-                        #         date = new_t['Date']
-                        #         status_desc = new_t['StatusDescription']
-                        #         # print('OROGINNN DATE AND STATUS',date,status_desc)
-                        #         if status_desc == "Item Bagged":
-                        #             print('STATUSS DESC',status_desc,date)
-                        #             booked = date
-                        if "Dispatch from outward office of exchange " in status_desc:
-                            outbound_date = date
-                        if "Arrival at inward office of exchange " in status_desc:
+                        #     if "Item Booked,Air" in status_desc:
+                        #         print('STATUSS DESC',status_desc)
+                                # booked = date
+                        if "Item Received" in status_desc and "KAWASAKI" in details:
                             arrival_date = date
-                        if "Final delivery " in status_desc:
+
+                        if "(Otb)" in status_desc:
+                            outbound_date = date
+                        else:
+                            if "Bagged,Air" in status_desc or "Bagged" in status_desc:
+                                outbound_date = date
+
+                        if "Delivery Confirmed" in status_desc:
                             delivered_date = date
+
+                           
+                        if "TOKYO INT BAG" in details:
+                            # print('ORIGIN DETAAILLSSS',tracking_number,details,status_desc)
+                            new_status = "Returned"                     
+
+                json = {
+                    "new_status":new_status,
+                    "tracking":tracking_number,
+                    "booked":booked,
+                    "outbound":outbound_date,
+                    "arrival":arrival_date,
+                    "delivered":delivered_date,
+                },
+                # print(json)
+
+                
+            elif tracking_info is not None:
+                booked = ""
+                outbound_date= ""
+                arrival_date= ""
+                delivered_date= ""
+                new_status = ""
+                for t in tracking_info:
+                    date = t['Date']
+                    status_desc = t['StatusDescription']
+                    details = t['Details']
+                    if "Posting/Collection " in status_desc:
+                        booked = date
+                    # if booked == "":
+                    #     for new_t in origin_info:
+                    #         date = new_t['Date']
+                    #         status_desc = new_t['StatusDescription']
+                    #         # print('OROGINNN DATE AND STATUS',date,status_desc)
+                    #         if status_desc == "Item Bagged":
+                    #             print('STATUSS DESC',status_desc,date)
+                    #             booked = date
+                    if "Dispatch from outward office of exchange " in status_desc:
+                        outbound_date = date
+                    if "Arrival at inward office of exchange " in status_desc:
+                        arrival_date = date
+                    if "Final delivery " in status_desc:
+                        delivered_date = date
+                
+                if booked == "":
+                    # print('EMPTYYY BOOKED',booked)
+                    for j in origin_info:
+                        date = j['Date']
+                        status_desc = j['StatusDescription']
+                        # print('ORIGN BOOK',status_desc)
+                        if "Booked,Air" in status_desc:
+                            # print('STATUSS DESC',status_desc,date)
+                            booked = date
+                # if outbound_date == "":
+                #     print('EMPTYYY BOOKED',outbound_date)
+                #     for p in origin_info:
+                #         date = p['Date']
+                #         status_desc = p['StatusDescription']
+                #         # print('ORIGN BOOK',status_desc)
+                #         if "Bagged,Air" in status_desc:
+                #             print('STATUSS DESC',tracking_number,status_desc,date)
+                #             outbound_date = date
+        
+                    # if "TOKYO INT BAG" in details:
+                    #     print('ORIGIN DETAAILLSSS',tracking_number,details,status_desc)
+                    #     new_status = "Returned"  
+                    # if "TOKYO" in details:
+                    #     print('DETAAILLSSS',details)          
+                    
+                
+                json2 = {
+                    "new_Status":new_status,
+                    "tracking":tracking_number,
+                    "booked":booked,
+                    "outbound":outbound_date,
+                    "arrival":arrival_date,
+                    "delivered":delivered_date,
+                },
+                # print(json2)
+            if new_status:              ####   Staus handling if booked and item delivery is confirmed
+                status = "Returned"
+            else :
                 if status == "delivered":              ####   Staus handling if booked and item delivery is confirmed
                     status = "Delivered"
                 else:
@@ -844,132 +404,141 @@ class GetTrackingDetails(APIView):
                         status = "OutBound"
                     elif booked:
                         status = "Booked"
-                    # print(booked,'ORIGN BOOK')
-                # if booked == "":
-                #     print('1',booked)
-                # for new_t in origin_info:
-                #     date = new_t['Date']
-                #     status_desc = new_t['StatusDescription']
-                #     if status_desc ==  "Item Booked,Air":
-                #         print('STATUSS DESC',status_desc,date)
-                    #             booked = date
-                                # print('ORIGN BOOK',booked)
+                    elif new_status:
+                        status = "Returned"
+                # print(booked,'ORIGN BOOK')
+            # if booked == "":
+            #     print('1',booked)
+            #     for new_t in origin_info:
+            #         print("PPPPPP")
+            #         date = new_t['Date']
+            #         status_desc = new_t['StatusDescription']
+            #         print('ORIGN BOOK',status_desc)
+            #         if "Booked" in status_desc:
+            #             print('STATUSS DESC',status_desc,date)
+                            # booked = date
+                            # print('ORIGN BOOK',booked)
                             # booked = dateß
                             # print('CHAL GYA BHAI')
-                            
+                                
 
-                d = {
-                    "status": status,
-                    "tracking_number":tracking_number,
-                    "updated_time":updated_time,    
-                    "Booked":booked,
-                    "OutBound":outbound_date,
-                    "Arrival":arrival_date,
-                    "Delivered":delivered_date,
-                    "lastEvent":last_event,
-                    # "origin_info":origin_info,
-                    "tracking_info":tracking_info
+            d = {
+                "status": status,
+                "tracking_number":tracking_number,
+                "updated_time":updated_time,    
+                "Booked":booked,
+                "OutBound":outbound_date,
+                "Arrival":arrival_date,
+                "Delivered":delivered_date,
+                "lastEvent":last_event,
+                # "origin_info":origin_info,
+                "tracking_info":tracking_info
 
-                }
-                new_temp.append(d)
+            }
+            new_temp.append(d)
+
+        
+
+        for new in new_temp:
+            s = new['status']
+            if s == "notfound":
+                s = "Available"
+            # if s == "expired":
+            #     Tracker.objects.update(bad=True)
+            t = new['tracking_number']
+            u =new['updated_time']
+            b = new['Booked']
+            a = new['Arrival']
+            d = new['Delivered']
+            o = new['OutBound']
+            i = new['tracking_info']
+            if d:
+                s = "Delivered"
+            elif o:
+                s = "Outbound"
+            elif a:
+                s = "Arrived"
+            elif b:
+                s = "Booked"
+            
+            # print(s)
+
+            # if b is None:
+            #     pass
+            # else:
+            #     s = "Booked"
+            #     break
             
 
-            for new in new_temp:
-                s = new['status']
-                if s == "notfound":
-                    s = "Available"
-                # if s == "expired":
-                #     Tracker.objects.update(bad=True)
-                t = new['tracking_number']
-                u =new['updated_time']
-                b = new['Booked']
-                a = new['Arrival']
-                d = new['Delivered']
-                o = new['OutBound']
-                i = new['tracking_info']
-                if d:
-                    s = "Delivered"
-                elif o:
-                    s = "Outbound"
-                elif a:
-                    s = "Arrived"
-                elif b:
-                    s = "Booked"
-                
-                print(s)
-
-                # if b is None:
-                #     pass
-                # else:
-                #     s = "Booked"
-                #     break
-                
-
-                # if a is None:
-                #     pass
-                # else:
-                #     s = "Arrived"
-                #     break
+            # if a is None:
+            #     pass
+            # else:
+            #     s = "Arrived"
+            #     break
 
 
-                # if o is None:
-                #     pass
-                # else:
-                #     s = "Outbound"
-                #     break
-                
+            # if o is None:
+            #     pass
+            # else:
+            #     s = "Outbound"
+            #     break
+            
 
-
-                
-                
-
-                ind_time = datetime.now(timezone("Asia/Kolkata")).strftime('%Y-%m-%d %H:%M:%S.%f')
-                print('REEEACHED HEREEEEE GETDETAILS')
-            #     for new_t in new_dict:
-            #           tracking_number = new_t['tracking_number']
-            #           Tracker.objects.filter(tracking_number=new_t).update(api_call_time=ind_time,status=s,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i
 
             
             
-            # )
-    
+
+            ind_time = datetime.now(timezone("Asia/Kolkata")).strftime('%Y-%m-%d %H:%M:%S.%f')
+            # print('REEEACHED HEREEEEE GETDETAILS')
+        #     for new_t in new_dict:
+        #           tracking_number = new_t['tracking_number']
+        #           Tracker.objects.filter(tracking_number=new_t).update(api_call_time=ind_time,status=s,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i
+
+        
+        
+        # )
 
 
-                # print(current_time)
 
 
-                if s == "Available":
-                    ns = "0"
-                if s == "transit":
-                    ns = "1"                    
-                elif s == "hold":
-                    ns = "2"
-                elif s == "shipped":
-                    ns = "3"
-                elif s =="expired":
-                    ns = "4"
-                elif s == "Booked":
-                    ns = "5"
-                elif s == "Outbound":
-                    ns = "6"
-                elif s == "Arrived":
-                    ns = "7"
-                elif s == "Delivered":
-                    ns = "8"
-                
-                # print('NSSSSS',ns)
+            # print(current_time)
 
 
-                new_data = Tracker.objects.create(api_call_time=ind_time,status=s,tracking_number=t,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i,numeric_status=ns
+            if s == "Available":
+                ns = "0"
+            if s == "transit":
+                ns = "1"                    
+            elif s == "hold":
+                ns = "2"
+            elif s == "shipped":
+                ns = "3"
+            elif s =="expired":
+                ns = "4"
+            elif s == "Booked":
+                ns = "5"
+            elif s == "Outbound":
+                ns = "6"
+            elif s == "Arrived":
+                ns = "7"
+            elif s == "Delivered":
+                ns = "8"
             
-        )
+            # print('NSSSSS',ns)
+#                 new_data = Tracker.objects.create(api_call_time=ind_time,status=s,tracking_number=t,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i,numeric_status=ns
+            
+#         )
 
-        except:
-            pass    
-        # ttt = Tracker.objects.all().values()
-        # print('tttttt',ttt)
-            # return Response('Error')
-            # print(new_dict)
+
+            # new_data = Tracker.objects.create(api_call_time=ind_time,status=s,tracking_number=t,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i,numeric_status=ns
+        
+    # )
+
+    # except:
+    #     pass    
+    # ttt = Tracker.objects.all().values()
+    # print('tttttt',ttt)
+        # return Response('Error')
+        # print(new_dict)
         return Response(new_temp)
     
     def patch(self, request):
@@ -1506,3 +1075,544 @@ def update():
     return new_temp
 
 
+
+def createfunc():
+    # request_data = requests.data
+    # t = request_data['tracking_number']
+    # print(track)
+    te = track()
+    # print(te['data']['items'][0]['status'],'ttttttt')
+    new_dict=  te['data']['items']
+    print(len(new_dict))
+    # x = new_dict['destination_info']['trackinfo']
+    # print(x)
+    new_temp = []
+    try:
+        for i in new_dict:
+            status = i['status']
+            tracking_number = i['tracking_number']
+            updated_time = i['updated_at']
+            tracking_info = i['destination_info']['trackinfo']
+            origin_info = i['origin_info']['trackinfo']
+            last_event = i['lastEvent']
+            if tracking_info is None:
+                # print(tracking_number,'ORIGIN INFO TRACK')
+                booked = ""
+                outbound_date= ""
+                arrival_date= ""
+                delivered_date= ""
+                tracking_info = ""
+                new_status = ""
+                if origin_info:
+                    for new_t in origin_info:
+                        date = new_t['Date']
+                        status_desc = new_t['StatusDescription']
+                        details = new_t['Details']
+                        # print('OROGINNN DATE AND STATUS',tracking_number,date,status_desc)
+                        if "Booked" in status_desc or "Booked,Air" in status_desc: 
+                                ## Changed to CONTAINS
+                            # print('STATUSS DESC',tracking_number,status_desc)
+                            booked = date
+                        # else:
+                        #     if "Item Booked,Air" in status_desc:
+                        #         print('STATUSS DESC',status_desc)
+                                # booked = date
+                        if "Item Received" in status_desc and "KAWASAKI" in details:
+                            arrival_date = date
+
+                        if "(Otb)" in status_desc:
+                            outbound_date = date
+
+                        if "Delivery Confirmed" in status_desc:
+                            delivered_date = date
+
+                            
+                        if "TOKYO INT BAG" in details:
+                            # print('ORIGIN DETAAILLSSS',tracking_number,details,status_desc)
+                            new_status = "Returned"                     
+
+                json = {
+                    "new_status":new_status,
+                    "tracking":tracking_number,
+                    "booked":booked,
+                    "outbound":outbound_date,
+                    "arrival":arrival_date,
+                    "delivered":delivered_date,
+                },
+                # print(json)
+
+                
+            elif tracking_info is not None:
+                booked = ""
+                outbound_date= ""
+                arrival_date= ""
+                delivered_date= ""
+                new_status = ""
+                for t in tracking_info:
+                    date = t['Date']
+                    status_desc = t['StatusDescription']
+                    details = t['Details']
+                    if "Posting/Collection " in status_desc:
+                        booked = date
+                    # if booked == "":
+                    #     for new_t in origin_info:
+                    #         date = new_t['Date']
+                    #         status_desc = new_t['StatusDescription']
+                    #         # print('OROGINNN DATE AND STATUS',date,status_desc)
+                    #         if status_desc == "Item Bagged":
+                    #             print('STATUSS DESC',status_desc,date)
+                    #             booked = date
+                    if "Dispatch from outward office of exchange " in status_desc:
+                        outbound_date = date
+                    if "Arrival at inward office of exchange " in status_desc:
+                        arrival_date = date
+                    if "Final delivery " in status_desc:
+                        delivered_date = date
+                
+                if booked == "":
+                    # print('EMPTYYY BOOKED',booked)
+                    for j in origin_info:
+                        date = j['Date']
+                        status_desc = j['StatusDescription']
+                        # print('ORIGN BOOK',status_desc)
+                        if "Booked,Air" in status_desc:
+                            print('STATUSS DESC',status_desc,date)
+                            booked = date
+
+                    # if "TOKYO INT BAG" in details:
+                    #     print('ORIGIN DETAAILLSSS',tracking_number,details,status_desc)
+                    #     new_status = "Returned"  
+                    # if "TOKYO" in details:
+                    #     print('DETAAILLSSS',details)          
+                    
+                
+                json2 = {
+                    "new_Status":new_status,
+                    "tracking":tracking_number,
+                    "booked":booked,
+                    "outbound":outbound_date,
+                    "arrival":arrival_date,
+                    "delivered":delivered_date,
+                },
+                # print(json2)
+            if new_status:              ####   Staus handling if booked and item delivery is confirmed
+                status = "Returned"
+            else :
+                if status == "delivered":              ####   Staus handling if booked and item delivery is confirmed
+                    status = "Delivered"
+                else:
+                    if delivered_date:
+                        status = "Delivered"
+                    elif arrival_date:
+                        status = "Arrival"
+                    elif outbound_date:
+                        status = "OutBound"
+                    elif booked:
+                        status = "Booked"
+                    elif new_status:
+                        status = "Returned"
+                # print(booked,'ORIGN BOOK')
+            # if booked == "":
+            #     print('1',booked)
+            #     for new_t in origin_info:
+            #         print("PPPPPP")
+            #         date = new_t['Date']
+            #         status_desc = new_t['StatusDescription']
+            #         print('ORIGN BOOK',status_desc)
+            #         if "Booked" in status_desc:
+            #             print('STATUSS DESC',status_desc,date)
+                            # booked = date
+                            # print('ORIGN BOOK',booked)
+                            # booked = dateß
+                            # print('CHAL GYA BHAI')
+                                
+
+            d = {
+                "status": status,
+                "tracking_number":tracking_number,
+                "updated_time":updated_time,    
+                "Booked":booked,
+                "OutBound":outbound_date,
+                "Arrival":arrival_date,
+                "Delivered":delivered_date,
+                "lastEvent":last_event,
+                # "origin_info":origin_info,
+                "tracking_info":tracking_info
+
+            }
+            new_temp.append(d)
+
+        
+
+        for new in new_temp:
+            s = new['status']
+            if s == "notfound":
+                s = "Available"
+            # if s == "expired":
+            #     Tracker.objects.update(bad=True)
+            t = new['tracking_number']
+            u =new['updated_time']
+            b = new['Booked']
+            a = new['Arrival']
+            d = new['Delivered']
+            o = new['OutBound']
+            i = new['tracking_info']
+            if d:
+                s = "Delivered"
+            elif o:
+                s = "Outbound"
+            elif a:
+                s = "Arrived"
+            elif b:
+                s = "Booked"
+            
+            # print(s)
+
+            # if b is None:
+            #     pass
+            # else:
+            #     s = "Booked"
+            #     break
+            
+
+            # if a is None:
+            #     pass
+            # else:
+            #     s = "Arrived"
+            #     break
+
+
+            # if o is None:
+            #     pass
+            # else:
+            #     s = "Outbound"
+            #     break
+            
+
+
+            
+            
+
+            ind_time = datetime.now(timezone("Asia/Kolkata")).strftime('%Y-%m-%d %H:%M:%S.%f')
+            # print('REEEACHED HEREEEEE GETDETAILS')
+        #     for new_t in new_dict:
+        #           tracking_number = new_t['tracking_number']
+        #           Tracker.objects.filter(tracking_number=new_t).update(api_call_time=ind_time,status=s,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i
+
+        
+        
+        # )
+
+
+
+
+            # print(current_time)
+
+
+            if s == "Available":
+                ns = "0"
+            if s == "transit":
+                ns = "1"                    
+            elif s == "hold":
+                ns = "2"
+            elif s == "shipped":
+                ns = "3"
+            elif s =="expired":
+                ns = "4"
+            elif s == "Booked":
+                ns = "5"
+            elif s == "Outbound":
+                ns = "6"
+            elif s == "Arrived":
+                ns = "7"
+            elif s == "Delivered":
+                ns = "8"
+            
+            # print('NSSSSS',ns)
+            # new_data = Tracker.objects.create(api_call_time=ind_time,status=s,tracking_number=t,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i,numeric_status=ns
+            
+            # )
+
+
+            new_data = Tracker.objects.create(api_call_time=ind_time,status=s,tracking_number=t,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i,numeric_status=ns
+        
+            )
+    except:
+        pass
+
+# createfunc() 
+
+
+def updatefunc():
+    # request_data = requests.data
+    # t = request_data['tracking_number']
+    # print(track)
+    te = track()
+    # print(te['data']['items'][0]['status'],'ttttttt')
+    new_dict=  te['data']['items']
+    print(len(new_dict))
+    # x = new_dict['destination_info']['trackinfo']
+    # print(x)
+    new_temp = []
+    try:
+        for i in new_dict:
+            status = i['status']
+            tracking_number = i['tracking_number']
+            updated_time = i['updated_at']
+            tracking_info = i['destination_info']['trackinfo']
+            origin_info = i['origin_info']['trackinfo']
+            last_event = i['lastEvent']
+            if tracking_info is None:
+                # print(tracking_number,'ORIGIN INFO TRACK')
+                booked = ""
+                outbound_date= ""
+                arrival_date= ""
+                delivered_date= ""
+                tracking_info = ""
+                new_status = ""
+                if origin_info:
+                    for new_t in origin_info:
+                        date = new_t['Date']
+                        status_desc = new_t['StatusDescription']
+                        details = new_t['Details']
+                        # print('OROGINNN DATE AND STATUS',tracking_number,date,status_desc)
+                        if "Booked" in status_desc or "Booked,Air" in status_desc: 
+                                ## Changed to CONTAINS
+                            # print('STATUSS DESC',tracking_number,status_desc)
+                            booked = date
+                        # else:
+                        #     if "Item Booked,Air" in status_desc:
+                        #         print('STATUSS DESC',status_desc)
+                                # booked = date
+                        if "Item Received" in status_desc and "KAWASAKI" in details:
+                            arrival_date = date
+
+                        if "(Otb)" in status_desc:
+                            outbound_date = date
+
+                        if "Delivery Confirmed" in status_desc:
+                            delivered_date = date
+
+                            
+                        if "TOKYO INT BAG" in details:
+                            # print('ORIGIN DETAAILLSSS',tracking_number,details,status_desc)
+                            new_status = "Returned"                     
+
+                json = {
+                    "new_status":new_status,
+                    "tracking":tracking_number,
+                    "booked":booked,
+                    "outbound":outbound_date,
+                    "arrival":arrival_date,
+                    "delivered":delivered_date,
+                },
+                # print(json)
+
+                
+            elif tracking_info is not None:
+                booked = ""
+                outbound_date= ""
+                arrival_date= ""
+                delivered_date= ""
+                new_status = ""
+                for t in tracking_info:
+                    date = t['Date']
+                    status_desc = t['StatusDescription']
+                    details = t['Details']
+                    if "Posting/Collection " in status_desc:
+                        booked = date
+                    # if booked == "":
+                    #     for new_t in origin_info:
+                    #         date = new_t['Date']
+                    #         status_desc = new_t['StatusDescription']
+                    #         # print('OROGINNN DATE AND STATUS',date,status_desc)
+                    #         if status_desc == "Item Bagged":
+                    #             print('STATUSS DESC',status_desc,date)
+                    #             booked = date
+                    if "Dispatch from outward office of exchange " in status_desc:
+                        outbound_date = date
+                    if "Arrival at inward office of exchange " in status_desc:
+                        arrival_date = date
+                    if "Final delivery " in status_desc:
+                        delivered_date = date
+                
+                if booked == "":
+                    # print('EMPTYYY BOOKED',booked)
+                    for j in origin_info:
+                        date = j['Date']
+                        status_desc = j['StatusDescription']
+                        # print('ORIGN BOOK',status_desc)
+                        if "Booked,Air" in status_desc:
+                            print('STATUSS DESC',status_desc,date)
+                            booked = date
+
+                    # if "TOKYO INT BAG" in details:
+                    #     print('ORIGIN DETAAILLSSS',tracking_number,details,status_desc)
+                    #     new_status = "Returned"  
+                    # if "TOKYO" in details:
+                    #     print('DETAAILLSSS',details)          
+                    
+                
+                json2 = {
+                    "new_Status":new_status,
+                    "tracking":tracking_number,
+                    "booked":booked,
+                    "outbound":outbound_date,
+                    "arrival":arrival_date,
+                    "delivered":delivered_date,
+                },
+                # print(json2)
+            if new_status:              ####   Staus handling if booked and item delivery is confirmed
+                status = "Returned"
+            else :
+                if status == "delivered":              ####   Staus handling if booked and item delivery is confirmed
+                    status = "Delivered"
+                else:
+                    if delivered_date:
+                        status = "Delivered"
+                    elif arrival_date:
+                        status = "Arrival"
+                    elif outbound_date:
+                        status = "OutBound"
+                    elif booked:
+                        status = "Booked"
+                    elif new_status:
+                        status = "Returned"
+                # print(booked,'ORIGN BOOK')
+            # if booked == "":
+            #     print('1',booked)
+            #     for new_t in origin_info:
+            #         print("PPPPPP")
+            #         date = new_t['Date']
+            #         status_desc = new_t['StatusDescription']
+            #         print('ORIGN BOOK',status_desc)
+            #         if "Booked" in status_desc:
+            #             print('STATUSS DESC',status_desc,date)
+                            # booked = date
+                            # print('ORIGN BOOK',booked)
+                            # booked = dateß
+                            # print('CHAL GYA BHAI')
+                                
+
+            d = {
+                "status": status,
+                "tracking_number":tracking_number,
+                "updated_time":updated_time,    
+                "Booked":booked,
+                "OutBound":outbound_date,
+                "Arrival":arrival_date,
+                "Delivered":delivered_date,
+                "lastEvent":last_event,
+                # "origin_info":origin_info,
+                "tracking_info":tracking_info
+
+            }
+            new_temp.append(d)
+
+        
+
+        for new in new_temp:
+            s = new['status']
+            if s == "notfound":
+                s = "Available"
+            # if s == "expired":
+            #     Tracker.objects.update(bad=True)
+            t = new['tracking_number']
+            u =new['updated_time']
+            b = new['Booked']
+            a = new['Arrival']
+            d = new['Delivered']
+            o = new['OutBound']
+            i = new['tracking_info']
+            if d:
+                s = "Delivered"
+            elif o:
+                s = "Outbound"
+            elif a:
+                s = "Arrived"
+            elif b:
+                s = "Booked"
+            
+            # print(s)
+
+            # if b is None:
+            #     pass
+            # else:
+            #     s = "Booked"
+            #     break
+            
+
+            # if a is None:
+            #     pass
+            # else:
+            #     s = "Arrived"
+            #     break
+
+
+            # if o is None:
+            #     pass
+            # else:
+            #     s = "Outbound"
+            #     break
+            
+
+
+            
+            
+
+            ind_time = datetime.now(timezone("Asia/Kolkata")).strftime('%Y-%m-%d %H:%M:%S.%f')
+            # print('REEEACHED HEREEEEE GETDETAILS')
+        #     for new_t in new_dict:
+        #           tracking_number = new_t['tracking_number']
+        #           Tracker.objects.filter(tracking_number=new_t).update(api_call_time=ind_time,status=s,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i
+
+        
+        
+        # )
+
+
+
+
+            # print(current_time)
+
+
+            if s == "Available":
+                ns = "0"
+            if s == "transit":
+                ns = "1"                    
+            elif s == "hold":
+                ns = "2"
+            elif s == "shipped":
+                ns = "3"
+            elif s =="expired":
+                ns = "4"
+            elif s == "Booked":
+                ns = "5"
+            elif s == "Outbound":
+                ns = "6"
+            elif s == "Arrived":
+                ns = "7"
+            elif s == "Delivered":
+                ns = "8"
+            
+            # print('NSSSSS',ns)
+            # new_data = Tracker.objects.create(api_call_time=ind_time,status=s,tracking_number=t,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i,numeric_status=ns
+            
+            # )
+            ind_time = datetime.now(timezone("Asia/Kolkata")).strftime('%Y-%m-%d %H:%M:%S.%f')
+            for new_t in new_dict:
+                tracking = new_t['tracking_number']
+                Tracker.objects.filter(tracking_number=tracking).update(api_call_time=ind_time,status=s,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i
+
+        
+        
+        )
+
+            # new_data = Tracker.objects.create(api_call_time=ind_time,status=s,tracking_number=t,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i,numeric_status=ns
+        
+            # )
+    except:
+        pass
+
+
+# updatefunc()

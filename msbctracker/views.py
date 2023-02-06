@@ -300,7 +300,7 @@ class GetTrackingDetails(APIView):
                         #     if "Item Booked,Air" in status_desc:
                         #         print('STATUSS DESC',status_desc)
                                 # booked = date
-                        if "Item Received" in status_desc and "KAWASAKI" in details:
+                        if "Item Received" in status_desc and "KAWASAKI" in details or "Item Received" in status_desc and "GUANGZHOU" in details:
                             arrival_date = date
 
                         if "(Otb)" in status_desc:
@@ -352,7 +352,7 @@ class GetTrackingDetails(APIView):
                         outbound_date = date
                     if "Arrival at inward office of exchange " in status_desc:
                         arrival_date = date
-                    if "Final delivery " in status_desc:
+                    if "Final delivery " in status_desc or "Delivered " in status_desc:
                         delivered_date = date
                 
                 if booked == "":
@@ -361,18 +361,19 @@ class GetTrackingDetails(APIView):
                         date = j['Date']
                         status_desc = j['StatusDescription']
                         # print('ORIGN BOOK',status_desc)
-                        if "Booked,Air" in status_desc:
+                        if "Booked,Air" in status_desc or "Item Booked":
                             # print('STATUSS DESC',status_desc,date)
                             booked = date
-                # if outbound_date == "":
-                #     print('EMPTYYY BOOKED',outbound_date)
-                #     for p in origin_info:
-                #         date = p['Date']
-                #         status_desc = p['StatusDescription']
-                #         # print('ORIGN BOOK',status_desc)
-                #         if "Bagged,Air" in status_desc:
-                #             print('STATUSS DESC',tracking_number,status_desc,date)
-                #             outbound_date = date
+                if arrival_date == "":
+                    # print('EMPTYYY BOOKED',outbound_date)
+                    for p in origin_info:
+                        date = p['Date']
+                        status_desc = p['StatusDescription']
+                        details = p['Details']
+                        # print('ORIGN BOOK',status_desc)
+                        if "Received" in status_desc:
+                            # print('STATUSS DESC',tracking_number,status_desc,date)
+                            arrival_date = date
         
                     # if "TOKYO INT BAG" in details:
                     #     print('ORIGIN DETAAILLSSS',tracking_number,details,status_desc)
