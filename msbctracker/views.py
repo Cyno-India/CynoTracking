@@ -313,7 +313,7 @@ class GetTrackingDetails(APIView):
                             delivered_date = date
 
                            
-                        if "TOKYO INT BAG" in details or "Item Bagged" in status_desc and "Japan" in details or "INT BAG" in details:
+                        if "TOKYO INT BAG" in details or "Item Bagged" in status_desc and "Japan" in details or "INT BAG" in details or "Item Bagged,Air" in status_desc and "Japan" in details or "INT BAG" in details:
                             # print('ORIGIN DETAAILLSSS',tracking_number,details,status_desc)
                             new_status = "Returned"          
                                        
