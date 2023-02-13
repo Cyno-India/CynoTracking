@@ -239,7 +239,7 @@ class PostingTrack(APIView):
                 # print('HIIIIIIIIIIOOO',excel_data_df)
                 tr = []
                 for ind in excel_data_df.index:
-                    p = excel_data_df['tracking_number\t'][ind]
+                    p = excel_data_df['tracking_number'][ind]
                     track = {
                         "tracking_number":p,
                         "carrier_code":"india-post"
