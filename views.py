@@ -452,7 +452,9 @@ class GetTrackingDetails(APIView):
             d = new['Delivered']
             o = new['OutBound']
             i = new['tracking_info']
-            if d:
+            if s == "Returned":
+                s = "Returned"
+            elif d:
                 s = "Delivered"
             elif o:
                 s = "Outbound"
@@ -502,7 +504,6 @@ class GetTrackingDetails(APIView):
 
 
             # print(current_time)
-
 
             if s == "Available":
                 ns = "0"

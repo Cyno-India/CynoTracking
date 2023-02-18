@@ -7,7 +7,7 @@ class TrackSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Tracker
-        fields = ['id','status','api_call_time','tracking_number','updated_time','booked','arrival','outbound','delivered','tracking_info']
+        fields = ['id','status','api_call_time','tracking_number','updated_time','booked','arrival','outbound','delivered','tracking_info','last_event']
 
 
 class TrackDetailsSerializer(serializers.ModelSerializer):
@@ -15,7 +15,7 @@ class TrackDetailsSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Tracker
-        fields = ['tracking_number','updated_time','booked','arrival','outbound','delivered',]
+        fields ='__all__'
     
     def to_representation(self, instance):
         data = super(TrackDetailsSerializer, self).to_representation(instance)

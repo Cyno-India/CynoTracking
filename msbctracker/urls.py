@@ -10,7 +10,7 @@ urlpatterns = [
     re_path('patch/<string:tracking_numbers>',PatchDetails.as_view()),
     # re_path(r'',PatchDetails.as_view()),
     re_path(r'^$', PatchDetails.as_view()),
-
+    re_path('list', NewData.as_view()),
 
 
 ]

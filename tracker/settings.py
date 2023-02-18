@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cej1lk)6nm0sj=zrplawsr94qk9zf$!mv1nxxbd2=k#*v_*ub2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['web-production-c6ff.up.railway.app','127.0.0.1']
+ALLOWED_HOSTS = ['web-production-c6ff.up.railway.app','127.0.0.1',]
 
 
 # Application definition
@@ -172,19 +172,18 @@ LOGGING = {
 }
 
 CRONJOBS = [
-    # ('*/2 * * * *','msbctracker.cron.createfunc'),
-    ('*/1 * * * *','msbctracker.cron.joy')
+    ('*/1 * * * *','msbctracker.cron.updatefunc')
 
 ]
 
 # CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
-# CORS_ORIGIN_WHITELIST = [
-#     'http://localhost:3000',
-# ]
+# CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+]
 
 
-CSRF_TRUSTED_ORIGINS = ['https://web-production-c6ff.up.railway.app']
+# CSRF_TRUSTED_ORIGINS = ['https://web-production-c6ff.up.railway.app']
 
 

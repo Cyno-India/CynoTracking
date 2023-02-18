@@ -16,6 +16,7 @@ class Tracker(models.Model):
     tracking_info = models.JSONField(default="")
     msbc_patch_api_call_time=models.CharField(default="",max_length=10)
     numeric_status = models.IntegerField(default="", max_length=20)
+    last_event = models.CharField(default="", max_length=200)
 
 
 class Logs(models.Model):
