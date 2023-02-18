@@ -10,6 +10,8 @@ from django.shortcuts import render
 from rest_framework import status
 from django.core.paginator import Paginator
 from rest_framework.parsers import MultiPartParser, FormParser
+
+from tracker import settings
 from .functions import numbers
 from rest_framework.views import APIView
 from .serializers import *
@@ -225,6 +227,19 @@ class GetDetails(ListAPIView):
     # print(queryset,'dict')
     serializer_class = TrackSerializer
     pagination_class = MyLimitOffsetPagination
+    
+    def get(self, request, *args, **kwargs):
+        response = super().get(self, request, *args, **kwargs)
+        if settings.MY_PROTOCOL == "https":
+            if response.data["next"]:
+                response.data["next"] = response.data["next"].replace(
+                "http://", "https://"
+            )
+            if response.data["previous"]:
+                response.data["previous"] = response.data["previous"].replace(
+                "http://", "https://"
+            )
+        return response
 
 class BasicPagination(PageNumberPagination):
     page_size_query_param = 'limit'

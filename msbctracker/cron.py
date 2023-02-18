@@ -23,7 +23,7 @@ def updatefunc():
     # te = update()
     # logger.info(d)
     # logger.info('Update')
-    logger.info(p)
+    logger.info('UPDAYTTED')
 
 
 #apart from notfound and expired is bad

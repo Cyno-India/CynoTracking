@@ -182,7 +182,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
-
+MY_PROTOCOL = "https"
 
 # CSRF_TRUSTED_ORIGINS = ['https://web-production-c6ff.up.railway.app']
 
