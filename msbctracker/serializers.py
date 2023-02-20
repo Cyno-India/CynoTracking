@@ -7,7 +7,7 @@ class TrackSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Tracker
-        fields = ['id','status','api_call_time','tracking_number','updated_time','booked','arrival','outbound','delivered','tracking_info','last_event']
+        fields = ['id','status','api_call_time','tracking_number','updated_time','booked','arrival','outbound','delivered','tracking_info','last_event','api_call_time']
 
 
 class TrackDetailsSerializer(serializers.ModelSerializer):

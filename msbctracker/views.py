@@ -372,10 +372,12 @@ class GetTrackingDetails(APIView):
         # print(track)
         te = track()
         # print(te['data']['items'][0]['status'],'ttttttt')
-        new_dict1 = te['data']['limit']
+        new_dict1 = te['data']['count']
         print('PAGEEE',new_dict1)
+        # if new_dict1 == 2000:
+        #     te = track()
         new_dict=  te['data']['items']
-        print(len(new_dict))
+        # print(len(new_dict))
         # x = new_dict['destination_info']['trackinfo']
         # print(x)
         new_temp = []
@@ -641,10 +643,10 @@ class GetTrackingDetails(APIView):
                 # print('NSSSSS',ns)
     #                 new_data = Tracker.objects.create(api_call_time=ind_time,status=s,tracking_number=t,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i,numeric_status=ns
                 
-    #         )
+    #   RD113140335IN       )
 
-
-                new_data = Tracker.objects.create(api_call_time=ind_time,status=s,tracking_number=t,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i,numeric_status=ns,last_event=last_event
+                if Tracker.objects.filter(tracking_number=t).exists() == False:
+                    new_data = Tracker.objects.create(api_call_time=ind_time,status=s,tracking_number=t,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i,numeric_status=ns,last_event=last_event
             
         )
 
@@ -909,8 +911,7 @@ class GetTrackingDetails(APIView):
             
                 
 
-
-                del_data = Tracker.objects.filter(tracking_number=t,status__in=["Available","Delivered","transit","Outbound","Booked","Arrived","expired","shipped"]).update(api_call_time=ind_time,status=s,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i,numeric_status=ns)
+                    del_data = Tracker.objects.filter(tracking_number=t,status__in=["Available","Delivered","transit","Outbound","Booked","Arrived","expired","shipped"]).update(api_call_time=ind_time,status=s,updated_time=u,booked=b,arrival=a,outbound=o,delivered=d,tracking_info=i,numeric_status=ns)
                 
 #RD113140335IN
                 # if b is None:
@@ -962,7 +963,7 @@ class GetTrackingDetails(APIView):
             # )
                 # return Response('Error')
                 # print(new_dict)
-        return Response(new_temp)
+        return Response('DONE')
 
 def create():
     # t = request_data['tracking_number']
