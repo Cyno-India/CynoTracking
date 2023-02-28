@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cej1lk)6nm0sj=zrplawsr94qk9zf$!mv1nxxbd2=k#*v_*ub2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['web-production-c6ff.up.railway.app','127.0.0.1',]
+ALLOWED_HOSTS = ['web-production-73c6.up.railway.app','127.0.0.1',]
 
 
 # Application definition
@@ -184,6 +184,6 @@ CORS_ORIGIN_WHITELIST = [
 ]
 MY_PROTOCOL = "https"
 
-# CSRF_TRUSTED_ORIGINS = ['https://web-production-c6ff.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-73c6.up.railway.app']
 
 
